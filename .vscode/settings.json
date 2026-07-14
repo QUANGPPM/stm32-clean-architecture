@@ -1,0 +1,16 @@
+{
+  "cmake.configureOnOpen": false,
+  "cmake.buildDirectory": "${workspaceFolder}/build",
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "clangd.path": "clangd",
+  "clangd.arguments": [
+    "--compile-commands-dir=build",
+    "--header-insertion=never",
+    "--query-driver=/usr/bin/arm-none-eabi-*"
+  ],
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "files.exclude": {
+    "**/build": true
+  }
+  
+}

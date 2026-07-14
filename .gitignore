@@ -1,0 +1,60 @@
+# CMake and build directories
+/build/
+/build-*/
+/tmpcheck*/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/Makefile
+/compile_commands.json
+
+# Object and binary files
+*.o
+*.obj
+*.elf
+*.axf
+*.bin
+*.hex
+*.map
+*.lst
+*.d
+
+# Linker, scatter, and intermediate files
+*.ld
+*.srec
+
+# IDE and editor files
+/.vs/
+*.suo
+*.user
+*.userosscache
+*.vcxproj*
+*.ncb
+*.sdf
+*.opendb
+
+# Vim/Emacs/Temp
+*~
+*.swp
+*.swo
+*.bak
+
+# OS generated
+Thumbs.db
+.DS_Store
+
+# OpenOCD and logs
+openocd.log
+
+# Ignore toolchain/install directories (if added accidentally)
+/.xpack/
+/C:/gcc-arm-none-eabi/
+
+# Third-party build artifacts
+ThirdParty/**/Lib/
+
+# Keep .vscode in repo (contains project config), but ignore workspace-specific files
+.vscode/*.code-workspace
+.vscode/*.code-workspace.*
+
+# End of file
