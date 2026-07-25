@@ -25,7 +25,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "blinkled_tasks.h"
+#include "tasks.h"
+#include "timers.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -51,6 +52,13 @@
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for ledBlinkFollowButton */
+osThreadId_t ledBlinkFollowButtonHandle;
+const osThreadAttr_t ledBlinkFollowButton_attributes = {
+  .name = "ledBlinkFollowButton",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
@@ -97,17 +105,28 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE BEGIN RTOS_TIMERS */
   /* start timers, add new ones, ... */
+  static TimerHandle_t xLed5BlinkTimer = NULL;
   /* USER CODE END RTOS_TIMERS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
+  xLed5BlinkTimer = xTimerCreate(
+              "LED5_Timer", 
+              pdMS_TO_TICKS(500), 
+              pdTRUE, 
+              NULL, 
+              vled5_blink_timer_callback
+            );
+  if(xLed5BlinkTimer != NULL){
+    xTimerStart(xLed5BlinkTimer, 0);
+  }
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
   /* creation of defaultTask */
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+  ledBlinkFollowButtonHandle = osThreadNew(led_blink_follow_button_task, NULL, &ledBlinkFollowButton_attributes);
   ledBlinkHandle = osThreadNew(led_blink_task, NULL, &ledBlink_attributes);
-  led5BlinkHandle = osThreadNew(led5_blink_task, NULL, &led5Blink_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */

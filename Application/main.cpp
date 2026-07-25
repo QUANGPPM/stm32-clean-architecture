@@ -4,8 +4,11 @@
 
 int main()
 {
-    // Initialize basic hardware (HAL, System Clock, GPIOs)
-    system_init(); 
+    // system init (HAL, System Clock)
+    system_init();
+    
+    // Initialize basic hardware (GPIOs, Interrupts,...)
+    board_init(); 
     
     // Initialize the CMSIS-RTOS Kernel
     osKernelInitialize();

@@ -4,16 +4,15 @@
 #ifdef __cplusplus
 #include "main.hpp" // For LDx_GPIO_Port, LDx_Pin, and other main application definitions
 #endif
-
+#include "FreeRTOS.h"
+#include "timers.h"
 #ifdef __cplusplus
 extern "C" {
 #endif
-// #include "main.hpp"
-#include "stm32f4xx_hal.h" // HAL types might be needed for function signatures
-#include "cmsis_os.h"      // CMSIS-RTOS types might be needed for function signatures
 
+void led_blink_follow_button_task(void *argument);
 void led_blink_task(void *argument);
-void led5_blink_task(void *argument);
+void vled5_blink_timer_callback(TimerHandle_t xTimer);
 
 #ifdef __cplusplus
 }

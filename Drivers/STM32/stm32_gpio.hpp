@@ -4,6 +4,9 @@
 
 class Stm32Gpio {
 public:
+    // default value for GPIO pin that don't use (support operator bool)
+    static const Stm32Gpio none;
+
     Stm32Gpio() : port(nullptr), pin_mask(0), pin_number(0) {}
     Stm32Gpio (GPIO_TypeDef* port, uint16_t pin) : port(port), pin_mask(pin), pin_number(0) {
         uint16_t pin_mask = this->pin_mask >> 1;
@@ -32,7 +35,7 @@ public:
 
     // Subscribe/unsubscribe interrupt
     bool subscribe(bool rising_edge, bool falling_edge, void (*callback)(void*), void* ctx );
-    bool unsubscribe();
+    void unsubscribe();
 
 // public --> call from outside 
     GPIO_TypeDef* port;
