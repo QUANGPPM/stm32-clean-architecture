@@ -3,6 +3,7 @@
 Stm32Gpio led3 = Stm32Gpio(LD3_GPIO_Port, LD3_Pin);
 Stm32Gpio led4 = Stm32Gpio(LD4_GPIO_Port, LD4_Pin);
 Stm32Gpio led5 = Stm32Gpio(LD5_GPIO_Port, LD5_Pin);
+Stm32Gpio led6 = Stm32Gpio(LD6_GPIO_Port, LD6_Pin);
 Stm32Gpio button = Stm32Gpio(B1_GPIO_Port, B1_Pin);
 
 void system_init(void){

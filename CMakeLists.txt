@@ -137,6 +137,7 @@ target_include_directories(firmware PRIVATE
   ${CMAKE_SOURCE_DIR}/ThirdParty/FreeRTOS/Source/include
   ${CMAKE_SOURCE_DIR}/ThirdParty/FreeRTOS/Source/portable/GCC/ARM_CM4F
   ${CMAKE_SOURCE_DIR}/ThirdParty/FreeRTOS/Source/CMSIS_RTOS_V2
+  ${CMAKE_SOURCE_DIR}/Application/tasks
 )
 if(CUBEMX_INCLUDE_DIR)
   target_include_directories(firmware PRIVATE ${CUBEMX_INCLUDE_DIR})

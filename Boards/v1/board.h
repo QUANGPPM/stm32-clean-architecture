@@ -14,6 +14,7 @@
 extern Stm32Gpio led3;
 extern Stm32Gpio led4;
 extern Stm32Gpio led5;
+extern Stm32Gpio led6;
 extern Stm32Gpio button;
 #endif
 
