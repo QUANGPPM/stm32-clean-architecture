@@ -12,7 +12,8 @@ extern "C" {
 
 void led3_blink_task(void * arg);
 void led4_blink_by_button_task(void *arg);
-void led5_blink_by_timer_task(void *arg);
+void button_handle_task(void *arg);
+void PeriodicTimer_Callback(void *arg);
 void led6_blink_by_uart_task(void *arg);
 
 #ifdef __cplusplus

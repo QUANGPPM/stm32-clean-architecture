@@ -19,8 +19,8 @@ void board_init(void){
     MX_GPIO_Init();
     
     // External interrupt lines are individually enabled in stm32_gpio.cpp
-    HAL_NVIC_SetPriority(EXTI0_IRQn, 1, 0);
-    HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+    // HAL_NVIC_SetPriority(EXTI0_IRQn, 1, 0);
+    // HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
 
 }
